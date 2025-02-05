@@ -1,0 +1,19 @@
+---
+
+- project:
+    name: 'ui-tests'
+    description: "<h2>UI autotests</h2>"
+    jobs:
+      - ui-tests
+
+- project:
+    name: 'api-tests'
+    description: "<h2>API autotests</h2>"
+    jobs:
+      - api-tests
+
+- project:
+    name: 'runner-tests'
+    description: "<h2>Autotests runner</h2>"
+    jobs:
+      - runner-tests
