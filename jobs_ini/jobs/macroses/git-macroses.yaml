@@ -8,7 +8,7 @@
           credentials-id: jenkins
           branches:
             - FETCH_HEAD
-          refspec: "${REFSPEC}"
+          refspec: "$REFSPEC"
 
 - scm:
     name: api-autotests-repo
