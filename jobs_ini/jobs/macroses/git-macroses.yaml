@@ -24,7 +24,7 @@
     name: runner-autotests-repo
     scm:
       - git:
-          url: https://github.com/kira-vlsv/tests-runner.git
+          url: https://github.com/kira-vlsv/Jenkins.git
           credentials-id: jenkins
           branches:
             - FETCH_HEAD
