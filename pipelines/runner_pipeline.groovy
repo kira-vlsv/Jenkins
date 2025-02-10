@@ -1,7 +1,7 @@
 timeout(time: 10, unit: 'MINUTES') {
     node('gradle') {
 
-        def config = readYaml text: params.YAML_CONFIG
+        def config = readYaml text: params.CONFIG
         config.each {
             k, v -> env."${k}" = v
         }
@@ -13,7 +13,7 @@ timeout(time: 10, unit: 'MINUTES') {
                 stage("Running $test_type tests") {
                     def parameters = [
                             "$REFSPEC",
-                            "$YAML_CONFIG"
+                            "$CONFIG"
                     ]
 
                     build(job: "$test_type-tests",
