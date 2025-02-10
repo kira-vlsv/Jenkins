@@ -5,6 +5,7 @@ timeout(time: 5, unit: 'MINUTES') {
         }
 
         stage('create config') {
+            sh "cd jobs_ini"
             sh """cat <<EOF> ./job.ini
                 [job_builder]
                 ignore_cache=True
