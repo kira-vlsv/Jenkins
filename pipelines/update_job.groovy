@@ -4,8 +4,11 @@ timeout(time: 5, unit: 'MINUTES') {
             checkout scm
         }
 
-        stage('create config') {
+        stage('move to directory') {
             sh "cd jobs_ini"
+        }
+
+        stage('create config') {
             sh """cat <<EOF> ./job.ini
                 [job_builder]
                 ignore_cache=True
