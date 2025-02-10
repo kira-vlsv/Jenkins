@@ -12,5 +12,3 @@ RUN apt-get update -y \
     && ln -s /opt/gradle-7.6/bin/gradle /usr/bin/gradle \
     && rm -rf /tmp/*
 
-RUN gradle --version
-
