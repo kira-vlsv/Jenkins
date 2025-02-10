@@ -4,12 +4,10 @@ timeout(time: 5, unit: 'MINUTES') {
             checkout scm
         }
 
-        stage('move to directory') {
-            sh "cd jobs_ini"
-        }
-
-        stage('create config') {
-            sh """cat <<EOF> ./job.ini
+        dir('jobs_ini') {  // Устанавливаем `jobs_ini` как рабочую директорию
+            stage('create config') {
+                sh '''
+                    cat <<EOF > job.ini
 [job_builder]
 ignore_cache=True
 keep_descriptions=False
@@ -21,11 +19,12 @@ password=admin
 url=https://localhost:8080/jenkins/
 timeout=30
 EOF
-                """
-        }
+                '''
+            }
 
-        stage('update jobs') {
-            sh "jenkins-jobs --conf ./job.ini update ."
+            stage('update jobs') {
+                sh 'jenkins-jobs --conf job.ini update .'
+            }
         }
     }
 }
