@@ -18,6 +18,7 @@ user=admin
 password=admin
 url=https://localhost:8080/jenkins/
 timeout=30
+verify_ssl=False
 EOF
                 '''
             }
