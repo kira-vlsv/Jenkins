@@ -16,9 +16,8 @@ recursive=True
 [jenkins]
 user=admin
 password=admin
-url=https://localhost:8080/jenkins/
+url=http://127.0.0.1:8080/jenkins/
 timeout=30
-verify_ssl=False
 EOF
                 '''
             }
