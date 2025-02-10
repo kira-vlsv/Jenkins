@@ -10,17 +10,18 @@ timeout(time: 5, unit: 'MINUTES') {
 
         stage('create config') {
             sh """cat <<EOF> ./job.ini
-                [job_builder]
-                ignore_cache=True
-                keep_descriptions=False
-                recursive=True
-                
-                [jenkins]
-                user=admin
-                password=admin
-                url=https://localhost:8080/jenkins/
-                timeout=30
-                EOF"""
+[job_builder]
+ignore_cache=True
+keep_descriptions=False
+recursive=True
+
+[jenkins]
+user=admin
+password=admin
+url=https://localhost:8080/jenkins/
+timeout=30
+EOF
+                """
         }
 
         stage('update jobs') {
