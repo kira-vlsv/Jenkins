@@ -17,3 +17,9 @@
     description: "<h2>Autotests runner</h2>"
     jobs:
       - runner-tests
+
+- project:
+    name: 'jobs-update'
+    description: "<h2>Update jobs</h2>"
+    jobs:
+      - jobs-update

@@ -9,9 +9,9 @@
           description: "<h3>Branch</h3>"
       - text:
           name: YAML_CONFIG
-          default: ""
+          default: "browser: 'chrome'\nbase_url: 'https://otus.ru'"
           description: "<h3>YAML job configuration</h3>"
     pipeline-scm:
       scm:
         - ui-autotests-repo
-      script-path: ./jenkins/ui_pipeline.groovy 
+      script-path: ui_pipeline.groovy

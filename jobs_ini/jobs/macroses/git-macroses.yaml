@@ -5,7 +5,7 @@
     scm:
       - git:
           url: https://github.com/kira-vlsv/ru.otus.git
-          credentials-id: UI_TESTS_CRED
+          credentials-id: jenkins
           branches:
             - FETCH_HEAD
           refspec: "${REFSPEC}"
@@ -14,18 +14,28 @@
     name: api-autotests-repo
     scm:
       - git:
-          url: git@github.com:kira-vlsv/ru.otus-api.git
+          url: https://github.com/kira-vlsv/ru.otus-api.git
           credentials-id: jenkins
           branches:
             - FETCH_HEAD
-          refspec: "${REFSPEC}"
+          refspec: "$REFSPEC"
 
 - scm:
     name: runner-autotests-repo
     scm:
       - git:
-          url: git@github.com:kira-vlsv/ru.otus.git
+          url: https://github.com/kira-vlsv/tests-runner.git
           credentials-id: jenkins
           branches:
             - FETCH_HEAD
-          refspec: "${REFSPEC}"
+          refspec: "$REFSPEC"
+
+- scm:
+    name: jenkins-repo
+    scm:
+      - git:
+          url: https://github.com/kira-vlsv/Jenkins.git
+          credentials-id: jenkins
+          branches:
+            - FETCH_HEAD
+          refspec: "$REFSPEC"

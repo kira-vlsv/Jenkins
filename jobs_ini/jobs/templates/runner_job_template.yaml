@@ -1,0 +1,19 @@
+- job-template:
+    name: runner-tests
+    description: '{description}'
+    project-type: pipeline
+    parameters:
+      - string:
+          name: REFSPEC
+          default: main
+          description: "<h3>Atotests runner</h3>"
+      - text:
+          name: CONFIG
+          default: "tests: 'ui, api'"
+          description: "<h3>Job configuration</h3>"
+    triggers:
+      - timed: "H 16 * * *"
+    pipeline-scm:
+      scm:
+        - runner-autotests-repo
+      script-path: ./pipelines/runner_pipeline.groovy

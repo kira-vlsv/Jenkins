@@ -1,17 +1,17 @@
 - job-template:
-    name: runner-tests
+    name: api-tests
     description: '{description}'
     project-type: pipeline
     parameters:
       - string:
           name: REFSPEC
           default: main
-          description: "<h3>Branch</h3>"
+          description: "<h3>API autotests</h3>"
       - text:
           name: YAML_CONFIG
-          default: ""
+          default: "base_url: 'https://petstore.swagger.io/v2/pet/'"
           description: "<h3>YAML job configuration</h3>"
     pipeline-scm:
       scm:
-        - runner-autotests-repo
-      script-path: ./jenkins/runner_pipeline.groovy
+        - api-autotests-repo
+      script-path: api_pipeline.groovy
