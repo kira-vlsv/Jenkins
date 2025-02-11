@@ -38,32 +38,4 @@ timeout(time: 10, unit: 'MINUTES') {
 
         parallel jobs
     }
-
-    node('gradle') {
-        stage('Collect Allure Results') {
-            sh 'mkdir -p allure-results'
-
-            copyArtifacts(
-                    projectName: 'ui-tests',
-                    filter: 'build/allure-results/**',
-                    target: 'allure-results',
-                    flatten: true,
-                    allowEmpty: true
-            )
-            copyArtifacts(
-                    projectName: 'api-tests',
-                    filter: 'build/allure-results/**',
-                    target: 'allure-results',
-                    flatten: true,
-                    allowEmpty: true
-            )
-        }
-
-        stage('Generate Allure Report') {
-            sh 'ls -lah allure-results'  // Проверка наличия файлов перед генерацией отчёта
-            allure([
-                    results: [[path: 'allure-results']]
-            ])
-        }
-    }
 }
